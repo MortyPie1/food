@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Hash;
 
 class RegisterController extends Controller
 {
-    
+
     // Show the register form
     public function show()
     {
@@ -34,7 +34,7 @@ class RegisterController extends Controller
         ]);
 
         // Step 3: Redirect (you can also log the user in if you want)
-        return redirect()->route('login')->with('success', 'You are now registered!');
+        return redirect()->route('dashboard')->with('success', 'Welcome! You are now registered.');
     }
 }
 

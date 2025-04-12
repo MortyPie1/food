@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Food Dashboard</title>
-    <link rel="stylesheet" href="{{ asset('css/dashboard.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/dash.css') }}">
 </head>
 <body>
 <h1>Welcome, {{ Auth::user()->name }}!</h1>
@@ -24,17 +24,20 @@
     <tr>
         <th>Name</th>
         <th>PLU Code</th>
-        <th>Added By</th>
         <th>Date</th>
     </tr>
     @foreach($foods as $food)
         <tr>
             <td>{{ $food->name }}</td>
             <td>{{ $food->plu_code }}</td>
-            <td>{{ $food->user->name }}</td>
             <td>{{ $food->created_at->format('Y-m-d') }}</td>
         </tr>
     @endforeach
 </table>
+<form class="logout" method="POST" action="{{ route('logout') }}">
+    @csrf
+    <button type="submit">Logout</button>
+</form>
+
 </body>
 </html>
